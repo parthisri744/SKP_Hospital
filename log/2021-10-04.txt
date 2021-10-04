@@ -1,0 +1,15 @@
+[04-Oct-2021 16:19:30 Europe/Berlin] PHP Notice:  Array to string conversion in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 10
+[04-Oct-2021 16:19:30 Europe/Berlin] PHP Notice:  Array to string conversion in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 17
+[04-Oct-2021 16:19:30 Europe/Berlin] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 54
+[04-Oct-2021 16:20:07 Europe/Berlin] PHP Notice:  Array to string conversion in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 17
+[04-Oct-2021 16:20:13 Europe/Berlin] PHP Notice:  Array to string conversion in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 17
+[04-Oct-2021 23:22:41 Europe/Berlin] PHP Notice:  Undefined index: ID in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 177
+[04-Oct-2021 23:23:03 Europe/Berlin] PHP Notice:  Undefined index: ID in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 167
+[04-Oct-2021 23:36:11 Europe/Berlin] PHP Notice:  Undefined index: userName in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 176
+[04-Oct-2021 23:36:11 Europe/Berlin] PHP Warning:  Creating default object from empty value in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 176
+[04-Oct-2021 23:36:23 Europe/Berlin] PHP Warning:  Creating default object from empty value in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 176
+[04-Oct-2021 23:49:36 Europe/Berlin] PHP Warning:  require_once(DATABASE.php): failed to open stream: No such file or directory in /opt/lampp/htdocs/SKP-Hospital/Model/Model.php on line 5
+[04-Oct-2021 23:49:36 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'DATABASE.php' (include_path='.:/opt/lampp/lib/php') in /opt/lampp/htdocs/SKP-Hospital/Model/Model.php on line 5
+[04-Oct-2021 23:50:35 Europe/Berlin] PHP Notice:  Undefined variable: password in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 183
+[04-Oct-2021 23:53:08 Europe/Berlin] PHP Parse error:  syntax error, unexpected ')' in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 180
+[04-Oct-2021 23:53:21 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /opt/lampp/htdocs/SKP-Hospital/App/PatientsDetails.php on line 200
