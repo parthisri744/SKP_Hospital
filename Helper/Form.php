@@ -124,7 +124,7 @@ class Form {
       }
       public static function options($label,$paramete,$required="yes",$option=Null){
         $html='<label class="form-label">Select '.$label.'</label>';
-        $html.='<select name="'.$paramete.'" id="'.$paramete.'"  class="form-control '.$paramete.' js-example-basic-single" ';
+        $html.='<select name="'.$paramete.'" id="'.$paramete.'"style=""  class="form-control '.$paramete.' js-example-basic-single" ';
         $html.=  $required=="yes" ? ' required >' : '>';
         $html.='<option value = """">Please Select</option>';
         $html .= $option;

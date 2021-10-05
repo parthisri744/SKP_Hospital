@@ -202,7 +202,6 @@ if($tocobj->pid !='' && $tocobj->patientID !='' && $tocobj->docname !='' && $toc
 <iframe src="App/Billpdfgen.php?id=<?php echo $_GET['ID']; ?>" id="iframe" width="72%" height="1480px"></iframe>
 </div>
 <div  class="text-center justify-content-center p-5">
-<a href="App/Billpdfgen.php?id=<?php echo $_GET['ID']; ?>" target="_blank" class="btn btn-warning ">External Preview</a>  
 <a class="btn btn-primary" onclick="printPage(urls);">Print Receipt</a>
 <?php echo  $obj->navigation("PatientsList","Cancel");  ?>
 </div>

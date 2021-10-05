@@ -40,7 +40,7 @@
 <div class="dropdown-menu">
 <a class="dropdown-item" href="index.php?action=FileUpload">Waiting For File Upload</a>
     <div class="dropdown-divider"></div>    
-    <a class="dropdown-item" href="index.php?action=DoctorVistProccessed">Completed Patients</a>
+    <a class="dropdown-item" href="index.php?action=CompletedPatients">Completed Patients</a>
 </li>
 <?php   }  ?>
 <!-- Global Search -->

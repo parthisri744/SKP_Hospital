@@ -43,7 +43,7 @@ class model {
         foreach($keys as $key) $temp[] = $key." = :".$key;
         $sql .= implode(", ",$temp);
         $sql .= " WHERE " . $param . " = '" . $value."'";
-       // echo "SQL :".$sql;
+     //   echo "SQL :".$sql;
          $stmt = $database->config()->prepare($sql);
         try{           
             $stmt->execute($insertData);

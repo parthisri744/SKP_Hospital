@@ -27,9 +27,10 @@ $db = new Model();
     <link rel="stylesheet" href="vendor/require/bootstrap.min.css">
     <link rel='stylesheet' href='vendor/require/sweetalert2.min.css'></link>
     <link rel='stylesheet' href='vendor/require/dataTables.min.css'></link>    
-    <link rel='stylesheet' href='vendor/require/imageuploadify.min.css'></link>    
+    <link rel='stylesheet' href='vendor/require/imageuploadify.min.css'></link>
     <link href="vendor/require/select2.min.css" rel="stylesheet" >
     <script src="vendor/require/jquery.min.js"></script>
+    <script src="vendor/require/select2.min.js"></script>    
     <script src="vendor/require/sweetalert2.all.min.js"></script> 
     <script src="vendor/chart/chart.min.js"></script> 
     <script src="vendor/chart/chart.min.js"></script> 
@@ -77,7 +78,7 @@ $GLOBALS['type'];
                         require_once("App/Charts.php");
                     }
                     ?>
-                </>
+                </div>
             </div>
         </div>
     </div>
@@ -96,12 +97,13 @@ setInterval(function() {
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
   document.getElementById("timer").innerHTML = currentTimeString;
 }, 1000);
+$('.js-example-basic-single').select2();
+
 </script>
 </body>
 <script src="vendor/require/popper.min.js"></script>
   <script src="vendor/require/bootstrap.min.js"></script>
   <script src="vendor/require/angular.min.js"></script>
-  <script src="vendor/require/select2.min.js"></script>
   <script src="vendor/require/dataTables.min.js"></script>
   <script src="vendor/require/dataTables.buttons.min.js"></script>
   <script src="vendor/require/jszip.min.js"></script>  

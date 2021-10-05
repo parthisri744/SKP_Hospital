@@ -7,6 +7,7 @@ if($param=="UserManagement"){
 <div class="text-right p-3">
 <button type="button" class="btn btn-primary" id="edit"  >UPDATE</button>
 <button type="button" class="btn btn-danger" id="delete"  >DELETE</button>
+<button type="button" class="btn btn-dark" id="password_rest" >Password Reset</button>
 </div>
 <table id="example" class="display" style="width:100%">
         <thead>
@@ -224,6 +225,52 @@ $('#phoneno').val(data.docphoneno);
 $('#uaddress').val(data.docaddress);  
 }
 });
+});
+$('#password_rest').click(function(){
+var edit_users_arr = [];
+$("#checkbox:checked").each(function(){
+var userid = $(this).val();
+edit_users_arr.push(userid);
+});
+var length=edit_users_arr.length;
+if(length == '1' ){
+  swal({
+title: "Are you sure?",
+text: "Do You Want Reset Password!",
+type: "warning",
+showCancelButton: true,
+confirmButtonColor: "purple",
+confirmButtonText: "Reset Password",
+}).then(result => {
+if (result.value) {
+$.ajax({  
+url:"Model/AjaxModel.php?functionname=passwordreset&id="+edit_users_arr,  
+method:"POST",  
+//data:{users_arr :users_arr},  
+success:function(data){  
+swal("Success!", "Peassword Reseted Successfully.", "success");
+//window.location.reload();
+} 
+});
+} 
+});
+}else if(length > 1) {
+setTimeout(function() {
+swal({
+title: "ERROR!",
+text: "You Selected More Then One User ! Please Select One User To Reset Password",
+type: "error"
+});
+}, 100);
+}else {
+setTimeout(function() {
+swal({
+title: "ERROR!",
+text: "Please Select Atlease One User",
+type: "error"
+});
+}, 100);
+}
 });
 });
 </script> 

@@ -345,9 +345,10 @@ echo $obj->redirect("Payment&ID=".$_GET['ID']);
               </tr>
           </tr>
     <?php $i++; } }  ?>
-</table><div class="text-center">
-<a href="App/Paymentbill.php?id=<?php echo $_GET['ID']; ?>" target="_blank" class="btn btn-warning ">External Preview</a>  
-<a class="btn btn-primary" onclick="printPage(urls);">Print Fees Receipt</a></div>
+</table>
+<div class="text-left" style="color:red"><span ><i>After Printed The Receipt Please Click On Submit Button</i><span></div>
+<div class="text-center">
+<a class="btn btn-primary" onclick="printPage(urls);">Print Fees Receipt</a>  <?php echo $obj->navigation("FileUpload","Submit","background-color:purple");  ?>  <?php echo $obj->navigation("FileUploadForm&ID=".$_GET['ID'],"Back");  ?></div>
 <script>
 function check(){
 edit_users_arr = [];
@@ -470,6 +471,9 @@ function printPage (sURL) {
 }
 var urls = "App/Paymentbill.php?id="+<?php echo $_GET['ID'] ?>;   
 </script>
+<?php
+}elseif($param=="CompletedPatients"){  ?>
+
 <?php
 }
 ?>

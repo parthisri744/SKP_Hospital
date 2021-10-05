@@ -43,4 +43,11 @@
     .modal .modal-body {
       overflow-y: auto;
     } */
+    h1 {
+      margin-top: 25px;
+    }
     
+    .lead, pre {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }

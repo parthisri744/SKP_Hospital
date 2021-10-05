@@ -55,4 +55,20 @@ if($getmethod == 'deletepatients'){
         $cond ='feesname="'.$_GET['id'].'"';
         $data=$db->getDbData("feesdeatils","patinetID",$cond,TRUE,"feesamount");
         echo json_encode($data);
+}elseif($getmethod=='passwordreset'){
+        $ids = $_GET['id'];
+        $sql = "SELECT birthdate FROM users WHERE ID = $ids";
+        $newdob=$db->exesql($sql);
+       // var_dump($newdob);
+        $birthdate = password_hash($newdob,PASSWORD_DEFAULT);
+        $dobobj =  new stdClass();
+        $dobobj->password = $birthdate;
+      //  var_dump($dobobj);
+        $data = $db->update('users',$dobobj,"ID",$_GET['id'],$type=0);
+      //  var_dump($data);
+        if($data){
+                echo "Password Reseted Successfully";
+        }else{
+                echo "Unable To Reset Your Password";
+        }
 }
