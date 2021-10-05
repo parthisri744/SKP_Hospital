@@ -11,7 +11,7 @@ session_start();
 }
 $datetime = date("Y-m-d h:i:s");
 $GLOBALS['datetime'];
-$username = $_SESSION["username"];
+$username = $_SESSION["loginname"];
 $GLOBALS['username'];
 $obj=new Form();
 $db = new Model();
@@ -63,7 +63,7 @@ $GLOBALS['type'];
                         require_once("App/Registration.php");
                     }elseif($param == "PatientsList" || $param == "Help" || $param == "ChangePassword"){
                         require_once("App/PatientsDetails.php");
-                    }elseif($param == "PatientSearch" || $param == "GenerateToken" || $param == "Printform"){
+                    }elseif($param == "PatientSearch" || $param == "GenerateToken" || $param == "Printform" || $param=="TodayTokens"){
                         require_once("App/Token.php");
                     }elseif($param=="Management" || $param=="AddDoctors"){
                         require_once("App/Doctors.php");

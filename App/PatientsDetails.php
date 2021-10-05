@@ -109,7 +109,7 @@ type: "error"
         method:"POST",  
         data:{users_arr :users_arr},  
         success:function(data){  
-       // window.location.reload();
+       window.location.reload();
         }  
         }); 
     } else if (
@@ -167,6 +167,7 @@ type: "error"
         <div class="col-md-12 p-4 text-center" >
         <?php echo  $obj->submit("Change Password");?>
        </div>
+      <?php echo $GLOBALS['username']  ?>
     </div>
 </form>
  <?php  
@@ -180,7 +181,7 @@ if(isset($_POST['submit'])){
 if($cpass->password !='' && $cpass->cfmpassword !='' && $cpass->username !='' ){
 if(strlen($cpass->password) > 8){
 if($cpass->password == $cpass->cfmpassword && $cpass->username!='' ){
-  $sql = "UPDATE users SET password=:password,created_by=:created_by,created_at=:created_at WHERE category = :category AND username = :username";
+  $sql = "UPDATE users SET password=:password,created_by=:created_by,created_at=:created_at WHERE category = :category AND uname = :username";
   $stmt=DATABASE::config()->prepare($sql);
   $password = password_hash($cpass->password, PASSWORD_DEFAULT);
   $stmt->bindParam(":password", $password, PDO::PARAM_STR);
@@ -188,6 +189,7 @@ if($cpass->password == $cpass->cfmpassword && $cpass->username!='' ){
   $stmt->bindParam(":username", $GLOBALS['username'], PDO::PARAM_STR);
   $stmt->bindParam(":created_by",  $GLOBALS['username'], PDO::PARAM_STR);
   $stmt->bindParam(":created_at",  $GLOBALS['datetime'], PDO::PARAM_STR);
+
   if($stmt->execute()){
     echo "<script>swal('Success','Password Changed Successfully','success');</script>";
   };

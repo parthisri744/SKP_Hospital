@@ -29,11 +29,8 @@ $name = $db->post('pname');
 $age = $db->post('age');
 $phno = $db->post('phno');
 $paddress = $db->post('paddress');
-function patientsid_generate($db){
-        $sql= "SELECT MAX(patientid) as patientid FROM patientdetails";
-        $feesid = $db->exesql($sql);
-        return isset($feesid) ? intval($feesid)+1 : 0;
-}       
+$token = intval($db->overallmax("patientid","patientdetails"));
+$newtoken = $token +1;
 if(isset($_POST['submit'])){
 if($_GET['id'] == 0){
 if($name !='' && $age != ''){
@@ -42,8 +39,8 @@ if($name !='' && $age != ''){
         $newobj->patientage =$age;
         $newobj->patientphno = $phno;
         $newobj->patientadd = $paddress;
-        $newobj->patientid = patientsid_generate($db);
-        $newobj->hpatientid = "SKP/".date('m').'/'.date('Y').'/'.patientsid_generate($db);
+        $newobj->patientid = $newtoken;
+        $newobj->hpatientid = "SKP/".date('m').'/'.date('Y').'/'.$newtoken;
         $newobj->submitname = $GLOBALS['username'];
         $data = $db->insert('patientdetails',$newobj);
         echo "<script>swal('success','Registered  Successfully','success');</script>";
@@ -116,9 +113,9 @@ echo $obj->redirect("FeesDetails");
 }else{
 }
 ?>
-<table class="table table-bordered table-hover">
+<table id="example" class="table table-hover display" style="width:100%">
 <thead class="thead-dark">
-  <tr>
+             <tr>
                 <th>SI.No</th>
                 <th>Fees Type</th>
                 <th>Fees Name</th>
@@ -129,7 +126,7 @@ echo $obj->redirect("FeesDetails");
             </tr>
 </thead>
 <tbody>
-</tbody><?php  if(!empty($data)) { $i=0;   ?>
+<?php  if(!empty($data)) { $i=0;   ?>
           <?php foreach($data as $fees) { ?>
               <tr>
                   <td><?php echo $i+1 ?></td>
@@ -138,12 +135,33 @@ echo $obj->redirect("FeesDetails");
                   <td><?php echo $fees['feesdesc']; ?></td>
                   <td><?php echo $fees['feesamount']; ?></td>
                   <td><?php echo $fees['submit_time']; ?></td>
-                  <td><input type="checkbox" class="form-checkbox-control" onchange="check();" id="checkbox" style="height:30px; width:30px" value="<?php echo $fees['ID']  ?>"></td>
+                  <td><input type="checkbox" class="form-checkbox-control text-center" onchange="check();" id="checkbox" style="height:30px; width:30px" value="<?php echo $fees['ID']  ?>"></td>
               </tr>
           </tr>
     <?php $i++; } }  ?>
+    </tbody>
 </table>
 <script>
+  $(document).ready(function() {
+$('#example thead tr').clone(true).appendTo( '#example thead' );
+$('#example thead tr:eq(1) th').each( function (i) {
+var title = $(this).text();
+$(this).html( '<input type="text" class="form-control " placeholder="Search '+title+'" />' );
+$( 'input', this ).on( 'keyup change', function () {
+if ( table.column(i).search() !== this.value ) {
+table
+.column(i)
+.search(this.value )
+.draw();
+}
+});
+}); 
+var table = $('#example').DataTable( {
+orderCellsTop: true,
+searching: true,
+"scrollX": true
+} );
+});
 function check(){
 edit_users_arr = [];
 $("#checkbox:checked").each(function(){
@@ -168,7 +186,7 @@ $.ajax({
     }  
 });
 }else{
-        swal('Error',"Please Select One Item To Edit",'error');
+        // swal('Error',"Please Select One Item To Edit",'error');
 }
 }
 $('#delete').click(function(e){

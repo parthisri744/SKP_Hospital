@@ -30,6 +30,9 @@
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?action=PatientsList">Patients Details</a>
 </div>
+<li class="nav-item">
+      <a class="nav-link" href="index.php?action=TodayTokens">Today Tokens</a>
+</li>
 </li>
 <!-- Staff Section -->
 <li class="nav-item dropdown">
@@ -82,7 +85,7 @@
 <ul class="navbar-nav ml-auto">
 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<?php echo $_SESSION['username']  ?> </a>
+<?php echo $_SESSION["loginname"]  ?> </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item"   href="index.php?action=ChangePassword" >Change Password</a>
 <div class="dropdown-divider"></div>

@@ -9,6 +9,18 @@ $data=$db->getDbData($table,"ID",$cond,FALSE,$select);
 //var_dump($data);
 foreach($data as $pdeatils){   
 ?>
+<style>
+    @media print {
+    @page {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    body {
+        padding-top: 72px;
+        padding-bottom: 72px ;
+    }
+}
+</style>
 <div style="margin:-5px">
 <table style="border-collapse: collapse; width: 57.3628%; height: 1079.6px;" border="1">
     <tbody>

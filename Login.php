@@ -27,7 +27,7 @@ class Login{
     */
     public  function login_username($username,$password){
         $err_msg=[];
-        $sql = "SELECT ID,username,password,category FROM users WHERE username = :username";
+        $sql = "SELECT ID,username,uname,password,category FROM users WHERE username = :username";
         $stmt = $this->db->prepare($sql);
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
         $stmt->execute();
@@ -37,13 +37,15 @@ class Login{
         if($row = $stmt->fetch()){
         $ID = $row["ID"];
         $category = $row["category"];
+        $loginname = $row["uname"];
         $username = $row["username"];
         $hashed_password = $row["password"];
         if(password_verify($password, $hashed_password)){
         session_start();
         $_SESSION["hospital"] = true;
         $_SESSION["ID"] = $ID;
-        $_SESSION["username"] = $username;    
+        $_SESSION["username"] = $username;  
+        $_SESSION["loginname"] = $loginname;      
         $_SESSION["category"] = $category;   
         if($category=="Admin"){                                       
             header("location: index.php?action=AdminDashboard");

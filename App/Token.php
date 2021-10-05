@@ -41,7 +41,7 @@ if($pname != ''){
 }elseif($patientid != ''){
    $condition .= 't2.hpatientid ="'.$patientid.'"';
 }elseif($pphno != ''){
-  $condition .= 't2.patientphno  ="%'.$pphno.'%"';
+  $condition .= 't2.patientphno  ="'.$pphno.'"';
 }elseif($fdate !="" && $tdate !=""){
   $condition .= 't1.toctime BETWEEN "'.$fdate.'" AND "'.$tdate.'"';
 }elseif($fdate !=""){
@@ -68,7 +68,9 @@ $data=$db->getDbData($table,"ID",$condition,FALSE,$select);
                 <th>Phone Number</th>
                 <th>Address</th>
                 <th>Updated Time</th>
+                <?php  if($GLOBALS['type'] != "Doctor"){ ?>
                 <th>Token Generation</th>
+                <?php } ?>
             </tr>
         </thead>
         <tbody>
@@ -82,8 +84,10 @@ $data=$db->getDbData($table,"ID",$condition,FALSE,$select);
                         <td><?php echo $patient['patientphno']; ?></td>
                         <td><?php echo $patient['patientadd']; ?></td>
                         <td><?php echo $patient['submitime']; ?></td>
+                        <?php  if($GLOBALS['type'] != "Doctor"){ ?>
                         <td><a href="index.php?action=GenerateToken&ID=<?php echo $patient['ID']; ?>" class="btn btn-success">TOKEN</a></td>
-                    </tr>
+                        <?php } ?>
+                      </tr>
                 <?php $i++; } ?>
             <?php } ?>
         </tbody>
@@ -126,6 +130,9 @@ if(!empty($data)) {  $i=0;?><?php foreach($data as $patient) { ?>
 <tr style="height: 22px;">
 <td style="width: 14.7521%; height: 22px;"><strong><span style="color: #e03e2d;">Patients ID</span></strong></td>
 <td style="width: 14.7521%; height: 22px;"> 
+<div>
+<div><span style="color: #0917F9;"><?php echo $patient['hpatientid'] ?></span></div>
+</div>
 </td>
 <td style="width: 16.8182%; height: 22px;"><strong><span style="color: #e03e2d;">Patients Name</span></strong></td>
 <td style="width: 12.686%; height: 22px;">
@@ -165,7 +172,7 @@ if(!empty($data)) {  $i=0;?><?php foreach($data as $patient) { ?>
         <?php echo  $obj->input_datetime("Visiting Time","vtime","yes",isset($patient['vtime']) ? $patient['vtime'] : "" ); ?>
         </div>
         <div class="col-md-4 ">
-        <?php echo  $obj->input_text("Patient Token","ptoken","yes",isset($newtoken) ? $newtoken : "" ); ?>
+        <?php echo  $obj->input_readonly("Patient Token","ptoken",isset($newtoken) ? $newtoken : "" ); ?>
         </div>
         <?php echo  $obj->input_hidden("pid",$patient["ID"]);?>
         <?php echo  $obj->input_hidden("hpid",$patient["hpatientid"]);?>         
@@ -203,7 +210,6 @@ if($tocobj->pid !='' && $tocobj->patientID !='' && $tocobj->docname !='' && $toc
 function closePrint () {
   document.body.removeChild(this.__container__);
 }
-
 function setPrint () {
   this.contentWindow.__container__ = this;
   this.contentWindow.onbeforeunload = closePrint;
@@ -226,6 +232,68 @@ function printPage (sURL) {
 }
 var urls = "App/Billpdfgen.php?id="+<?php echo $_GET['ID'] ?>;   
 </script>
+<?php
+}elseif($param=="TodayTokens"){   
+  $cond ='DATE(t1.toctime) = CURRENT_DATE';
+  $table="patients t1 INNER JOIN patientdetails t2 ON t2.hpatientid=t1.patientID";
+  $select="t1.*,t1.ID as PID,t2.*";
+  $data=$db->getDbData($table,"ID",$cond,FALSE,$select);
+?>
+<?php  echo $obj->head("Today Token Generated Patients");  ?>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>SI.No</th>
+                <th>Token No</th>
+                <th>Patients Name</th>
+                <th>Patients ID</th>
+                <th>Age</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Doctor Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php if(!empty($data)) {  $i=0;?>
+                <?php foreach($data as $patient) { ?>
+                    <tr>
+                        <td><?php echo $i+1 ?></td>
+                        <td><?php echo $patient['ptoken']; ?></td>
+                        <td><?php echo $patient['patientname']; ?></td>
+                        <td><?php echo $patient['hpatientid']; ?></td>
+                        <td><?php echo $patient['patientage']; ?></td>
+                        <td><?php echo $patient['patientphno']; ?></td>
+                        <td><?php echo $patient['patientadd']; ?></td>
+                        <td><?php echo $patient['docname']; ?></td>
+                        <td><?php echo $patient['patstatus']; ?></td>
+                      </tr>
+                <?php $i++; } ?>
+            <?php } ?>
+        </tbody>
+ </table>
+<script>
+$(document).ready(function() {
+$('#example thead tr').clone(true).appendTo( '#example thead' );
+$('#example thead tr:eq(1) th').each( function (i) {
+var title = $(this).text();
+$(this).html( '<input type="text" class="form-control " placeholder="Search '+title+'" />' );
+$( 'input', this ).on( 'keyup change', function () {
+if ( table.column(i).search() !== this.value ) {
+table
+.column(i)
+.search(this.value )
+.draw();
+}
+} );
+} ); 
+var table = $('#example').DataTable( {
+orderCellsTop: true,
+searching: true,
+"scrollX": true
+} );
+});
+  </script>
 <?php
 }
  ?>

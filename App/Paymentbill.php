@@ -3,8 +3,8 @@ require_once   "../Model/Model.php";
 $db = new Model();
 $id= $_GET['id'];
 $cond ='t2.ID='.'"'.$GLOBALS['id'].'" ORDER BY t2.ID DESC LIMIT 0,1';
-$table="patientdetails t1 INNER JOIN patients t2 ON t2.pid=t1.ID INNER JOIN doctorsdetails t3 ON t3.docname=t2.docname";
-$select="t1.*,t1.ID as PID,t2.*,t3.*";
+$table="patientdetails t1 INNER JOIN patients t2 ON t2.pid=t1.ID";
+$select="t1.*,t1.ID as PID,t2.*";
 $data=$db->getDbData($table,"ID",$cond,FALSE,$select);
 $cond= "patinetID=".$_GET['id'];
 $result=$db->getDbData("patinetsfeesdeatils","patinetID",$cond,FALSE,$select=NULL);
@@ -45,13 +45,11 @@ foreach($data as $pdeatils){
 <td style="width: 99.8045%; height: 140px; border: 4px solid #2e3092;" colspan="5"><span style="font-family: 'times new roman', times, serif; font-size: 18pt;"><img src="../vendor/images/hopital-header.png" width="993" height="147" /></span></td>
 </tr>
 <tr style="height: 10px;">
-<td style="height: 10px; width: 99.8045%; text-align: center; border: 4px solid #2e3092;" colspan="5"><span style="font-size: 18pt; color: #ff004c; font-family: 'times new roman', times, serif;"><strong>Dr. <?php echo $pdeatils['docname']." ".$pdeatils['docqualifi']; ?></strong></span><br /><span style="font-family: 'times new roman', times, serif; font-size: 18pt;"><strong><span style="color: #2e3092;"><span style="color: #2e3092;">REG . No : <?php echo $pdeatils['docid']  ?><br /></span></span></strong><strong><span style="color: #2e3092;"><span style="color: #2e3092;"><?php echo $pdeatils['docsplist'] ?></span></span></strong></span></td>
-</tr>
-<tr style="height: 10px;">
 <td style="width: 99.8045%; height: 10px; border: 4px solid #2e3092;" colspan="5"><span style="font-size: 18pt; font-family: 'times new roman', times, serif;"><strong><span style="color: #2e3092;"><span style="color: #2e3092;">&nbsp; &nbsp;<span style="font-size: 15pt; color: #2e3092;">Patient ID : <?php echo $pdeatils['hpatientid']   ?>&nbsp; </span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #2e3092;"><span style="float:right">Date :<?php echo date('Y-m-d') ?></span></span></strong></span></td>
 </tr>
 <tr style="height: 10px;">
-<td style="width: 99.8045%; height: 10px; border: 4px solid #2e3092;" colspan="5"><span style="font-size: 18pt; font-family: 'times new roman', times, serif;"><strong><span style="color: #2e3092;"><span style="color: #2e3092;">&nbsp; &nbsp;</span><span style="font-size: 15pt; color: #2e3092;"> <span style="font-size: 18pt; font-family: 'times new roman', times, serif;">Name :  <?php echo $pdeatils['patientname'] ?>&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 18pt; font-family: 'times new roman', times, serif;">&nbsp;&nbsp;Age/Sex : <?php echo $pdeatils['docsplist'] ?>&nbsp; </span><span style="float:right">Phone No : <?php echo $pdeatils['patientphno']   ?> &nbsp;</span><br /></span></strong></span></td>
+<td style="width: 99.8045%; height: 10px; border: 4px solid #2e3092;" colspan="5"><span style="font-size: 18pt; font-family: 'times new roman', times, serif;"><strong><span style="color: #2e3092;"><span style="color: #2e3092;">&nbsp; &nbsp;</span><span style="font-size: 15pt; color: #2e3092;"> 
+<span style="font-size: 18pt; font-family: 'times new roman', times, serif;">Name :  <?php echo $pdeatils['patientname'] ?>&nbsp;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 18pt; font-family: 'times new roman', times, serif;">&nbsp;&nbsp;Age/Sex : <?php echo $pdeatils['patientage'] ?>&nbsp; </span><span style="float:right">Phone No : <?php echo $pdeatils['patientphno']   ?> &nbsp;</span><br /></span></strong></span></td>
 </tr>
 <tr style="height: 22px;">
 <td style="min-height:80px; vertical-align: top; width: 99.8045%; border: 4px solid #2e3092;" colspan="5" rowspan="7">

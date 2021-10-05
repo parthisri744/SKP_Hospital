@@ -159,7 +159,8 @@ type: "error"
     </div>
 </form>
 <?php 
-$uname = strlen($db->post('tuname') > 0) ? $db->post('tuname') : $db->post('suname');
+$newname = $db->post('tuname');
+$uname = isset($newname) ? $db->post('tuname') : $db->post('suname');
 $userobj = new stdClass();
 $userobj->category = $db->post('category');
 $userobj->uname = $uname;

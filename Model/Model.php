@@ -201,9 +201,23 @@ class model {
              return NULL;
              }
         } 
-        public function max($parameter,$table,$condition){
+        public function max($parameter,$table,$condition=NULL){
             $database = new Database(); 
             $sql ="SELECT MAX(".$parameter.") FROM ".$table." WHERE ".$condition;
+           // echo  "SQL ".$sql;
+            $stmt = $database->config()->prepare($sql);
+            try{
+             $stmt->execute();
+             $rows = $stmt->fetchColumn();
+             return $rows;
+             } catch (PDOException $e) {
+             echo $sql."<br/>".$e->getMessage();
+             return NULL;
+             }
+        } 
+        public function overallmax($parameter,$table){
+            $database = new Database(); 
+            $sql ="SELECT MAX(".$parameter.") FROM ".$table;
            // echo  "SQL ".$sql;
             $stmt = $database->config()->prepare($sql);
             try{

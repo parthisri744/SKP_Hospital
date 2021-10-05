@@ -1,0 +1,51 @@
+[05-Oct-2021 05:50:34 Europe/Berlin] PHP Fatal error:  Cannot redeclare get_value() (previously declared in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php:8) in /opt/lampp/htdocs/SKP-Hospital/App/Charts.php on line 122
+[05-Oct-2021 05:54:18 Europe/Berlin] No account found with that username.
+[05-Oct-2021 05:54:29 Europe/Berlin] 
+[05-Oct-2021 05:55:12 Europe/Berlin] No account found with that username.
+[05-Oct-2021 05:55:20 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 05:55:38 Europe/Berlin] 
+[05-Oct-2021 06:13:57 Europe/Berlin] No account found with that username.
+[05-Oct-2021 06:14:19 Europe/Berlin] 
+[05-Oct-2021 17:14:11 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:14:14 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:14:56 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:15:20 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:15:47 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:16:37 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:16:56 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:17:04 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:17:39 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:18:28 Europe/Berlin] 
+[05-Oct-2021 17:22:58 Europe/Berlin] PHP Notice:  Undefined index: loginname in /opt/lampp/htdocs/SKP-Hospital/index.php on line 14
+[05-Oct-2021 17:22:58 Europe/Berlin] PHP Notice:  Undefined index: loginname in /opt/lampp/htdocs/SKP-Hospital/Navigation/AdminNav.php on line 85
+[05-Oct-2021 17:23:02 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:23:19 Europe/Berlin] PHP Notice:  Undefined index: loginname in /opt/lampp/htdocs/SKP-Hospital/index.php on line 14
+[05-Oct-2021 17:23:19 Europe/Berlin] PHP Notice:  Undefined index: loginname in /opt/lampp/htdocs/SKP-Hospital/Navigation/AdminNav.php on line 85
+[05-Oct-2021 17:23:25 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:23:34 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:23:44 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:23:55 Europe/Berlin] 
+[05-Oct-2021 17:24:57 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:25:25 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:25:30 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:25:43 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:26:33 Europe/Berlin] 
+[05-Oct-2021 17:27:33 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:27:39 Europe/Berlin] 
+[05-Oct-2021 17:27:46 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:27:56 Europe/Berlin] 
+[05-Oct-2021 17:27:58 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:28:04 Europe/Berlin] 
+[05-Oct-2021 17:28:34 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:28:41 Europe/Berlin] 
+[05-Oct-2021 17:30:43 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:30:53 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:31:01 Europe/Berlin] The password you entered was not valid
+[05-Oct-2021 17:31:22 Europe/Berlin] 
+[05-Oct-2021 17:33:05 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:33:16 Europe/Berlin] 
+[05-Oct-2021 17:44:56 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:50:45 Europe/Berlin] No account found with that username.
+[05-Oct-2021 17:50:58 Europe/Berlin] 
+[05-Oct-2021 18:12:07 Europe/Berlin] PHP Notice:  Undefined index: status in /opt/lampp/htdocs/SKP-Hospital/App/Token.php on line 267
+[05-Oct-2021 18:50:14 Europe/Berlin] No account found with that username.
