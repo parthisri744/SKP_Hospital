@@ -30,13 +30,10 @@ $db = new Model();
     <link rel='stylesheet' href='vendor/require/imageuploadify.min.css'></link>    
     <link href="vendor/require/select2.min.css" rel="stylesheet" >
     <script src="vendor/require/jquery.min.js"></script>
-<<<<<<< HEAD
     <script src="vendor/require/sweetalert2.all.min.js"></script> 
     <script src="vendor/chart/chart.min.js"></script> 
-=======
     <script src="vendor/chart/chart.min.js"></script> 
    <script src="vendor/require/sweetalert2.all.min.js"></script> 
->>>>>>> 27af981cba50590b34d0c11ff107eb13058fbbaa
     <style>
         input[type=text],input[type=password],input[type=number],input[type=email],input[type=datetime-local],input[type=date],textarea {
         border: 2px solid  #3399ff;
