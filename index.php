@@ -114,7 +114,7 @@ $('.js-example-basic-single').select2();
   <script src="vendor/require/imageuploadify.min.js"></script>
   <script src="vendor/js/script.js"></script>
  <div class="footer bg-primary ">
-<div class="footer-copyright text-center py-3">© 2021 Copyright:Microtech
+<div class="footer-copyright text-center py-3">© <?php echo date('Y')  ?> Copyright:Microtech
 </div>
 </div>
 </html>

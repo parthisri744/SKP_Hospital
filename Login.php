@@ -81,6 +81,11 @@ $result=implode("",$result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SKP Hospital</title>
 </head>
+<style>
+        input[type=text],input[type=password],input[type=number],input[type=email],input[type=datetime-local],input[type=date],textarea {
+        border: 2px solid  #3399ff;
+        }
+</style>
 <body>
     <div><?php  require_once("Navigation/Loginnav.php");  ?></div>
     <?php 
@@ -128,7 +133,7 @@ $result=implode("",$result);
 <script src="vendor/js/index.js"></script>
 </body>
 <div class="footer fixed-bottom bg-primary sticky-buttom page-footer ">
-<div class="footer-copyright text-center py-3">© 2020 Copyright:UCEN
+<div class="footer-copyright text-center py-3">© <?php echo date('Y')  ?> Copyright:Microtech
 </div>
 </div>
 </html>
