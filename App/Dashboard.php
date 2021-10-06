@@ -8,16 +8,16 @@
         <?php echo $obj->dashboard("Waiting For Doctor's",Model::count("ID","patients","patstatus='Waiting For Doctor Process'"),"#");  ?>
         </div>
         <div class="col-md-3"> 
-        <?php echo $obj->dashboard("Waiting For File Upload",Model::count("ID","patients","patstatus='Waiting For Document Upload'"),"#");  ?>
+        <?php echo $obj->dashboard("Waiting For File Upload",Model::count("ID","patients","patstatus='Waiting For Document Upload'"),"index.php?action=FileUpload");  ?>
         </div>
         <div class="col-md-3"> 
-        <?php echo $obj->dashboard("Completed Patients",Model::count("ID","patients","patstatus='Completed'"),"#");  ?>
+        <?php echo $obj->dashboard("Completed Patients",Model::count("ID","patients","patstatus='Completed'"),"index.php?action=CompletedPatients");  ?>
         </div>
         <div class="col-md-3"> 
-        <?php echo $obj->dashboard("Today Report",Model::count("ID","patients","DATE(docprotime) = CURRENT_DATE"),"#");  ?>
+        <?php echo $obj->dashboard("Today Report",Model::count("ID","patients","DATE(docprotime) = CURRENT_DATE"),"index.php?action=PatientsPaymentDetailsToday");  ?>
         </div>
         <div class="col-md-6"> 
-        <?php echo $obj->dashboard("Total Amount(Today)",Model::sum("totalamount","patinetsfeesdeatils","DATE(submit_time) LIKE CURRENT_DATE"),"#");  ?>
+        <?php echo $obj->dashboard("Total Amount(Today)",Model::sum("totalamount","patinetsfeesdeatils","DATE(submit_time) LIKE CURRENT_DATE"),"index.php?action=PatientsPaymentDetailsToday");  ?>
         </div>
         <div class="col-md-6"> 
         <?php echo $obj->dashboard("Total Files Uploaded",Model::overallcount("ID","fileupload"),"#");  ?>

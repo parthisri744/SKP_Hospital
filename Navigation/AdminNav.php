@@ -30,8 +30,16 @@
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?action=PatientsList">Patients Details</a>
 </div>
-<li class="nav-item">
-      <a class="nav-link" href="index.php?action=TodayTokens">Today Tokens</a>
+<li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Report</a>
+      <div class="dropdown-menu">
+      <?php  if($GLOBALS['type']=="Admin"){  ?>
+      <a class="dropdown-item" href="index.php?action=PatientsPaymentDetails">Payment Details</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="index.php?action=PatientsPaymentDetailsToday">Payment Details Today</a>
+      <div class="dropdown-divider"></div>
+      <?php   }  ?>
+     <a class="dropdown-item" href="index.php?action=TodayTokens">Today Tokens</a>
 </li>
 </li>
 <!-- Staff Section -->

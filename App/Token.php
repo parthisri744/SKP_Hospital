@@ -294,5 +294,5 @@ searching: true,
 });
   </script>
 <?php
-}
- ?>
+} ?>
+

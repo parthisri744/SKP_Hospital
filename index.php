@@ -55,7 +55,7 @@ $GLOBALS['type'];
         <div class="col-md-12">
             <div class="card" style="min-height:600px">
                 <div class="card-body">
-                <span class="text-right  alert alert-success" style="width:310px;">DATE : <?php echo date('d-m-Y');  ?> Time :<span id="timer"></span></span><br>
+                <span class="text-right  alert alert-success" style="width:310px;">DATE : <?php echo date('d-m-Y');  ?> TIME :<span id="timer"></span></span><br>
                 <?php
                     $param=isset($_GET['action']) ? $_GET['action'] : "";
                     if($param=="AdminDashboard" || $param=="StaffDashboard" || $param == "DoctorDashboard"){
@@ -76,6 +76,8 @@ $GLOBALS['type'];
                         require_once("App/FileUpload.php");
                     }elseif($param=="Statistics"){
                         require_once("App/Charts.php");
+                    }elseif($param=="PatientsPaymentDetails" || $param=="PatientsPaymentDetailsToday"){
+                        require_once("App/PatientsReport.php");
                     }
                     ?>
                 </div>

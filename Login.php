@@ -112,13 +112,13 @@ $result=implode("",$result);
         <p class="text-center alert alert-danger p-2">Please fill the login credentials.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="needs-validation p-3" novalidate>
             <div class="form-group ">Enter Username</label>
-            <input type="text" name="username" class="form-control" value="" autocomplete="off" required>
+            <input type="text" name="username" class="form-control" value="<?php echo $username  ?>" autocomplete="off" required>
             <span class="invalid-feedback">Please Enter UserName</span>
             </div>    
             <div class="form-group p1">
                 <label class="form-label">Enter Password</label>
                 <span class="invalid-feedback">Please Enter Password</span>
-                <input type="password" name="password" class="form-control" autocomplete="off" required>
+                <input type="password" name="password" value="<?php echo $password  ?>" class="form-control" autocomplete="off" required>
                 <span class="invalid-feedback">Please Enter Password</span>
             </div>
             <div class="form-group text-center p-3" >
