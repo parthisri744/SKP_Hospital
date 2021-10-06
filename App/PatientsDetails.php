@@ -167,7 +167,6 @@ type: "error"
         <div class="col-md-12 p-4 text-center" >
         <?php echo  $obj->submit("Change Password");?>
        </div>
-      <?php echo $GLOBALS['username']  ?>
     </div>
 </form>
  <?php  
